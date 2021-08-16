@@ -27,12 +27,11 @@ public class QuesterMenu extends Menu {
     public static final MenuItem COMPLETED_GLASS_ITEM = new MenuItem(new VItemStack(Material.STAINED_GLASS_PANE, "&aВыполнено!", (short) 5));
     private static final MenuItem AIR = new MenuItem(Material.AIR);
 
-    private final Quester quester;
-    private final Player player;
-
-    private final TIntIntHashMap slotToIndex = new TIntIntHashMap(10, 0.5F, 0, -1);
-    private int page, maxPages;
-    private boolean hasNextPage;
+    Quester quester;
+    Player player;
+    TIntIntHashMap slotToIndex = new TIntIntHashMap(10, 0.5F, 0, -1);
+    int page, maxPages;
+    boolean hasNextPage;
 
     private List<Quest> quests;
 
