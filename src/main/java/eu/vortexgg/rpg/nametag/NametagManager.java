@@ -66,8 +66,7 @@ public class NametagManager {
 
     private static Nametag getNametag(Player toRefresh, Player refreshFor) {
 	if (BukkitUtil.isLP(refreshFor)) {
-	    ArrayList<String> nametag = Lists.newArrayList();
-	    LunarClientAPI.getInstance().resetNametag(toRefresh, refreshFor);
+	    ArrayList<String> nametag = Lists.newArrayList()ж
 	    LunarClientAPI.getInstance().overrideNametag(toRefresh, nametag, refreshFor);
 	    return getOrCreate("", "");
 	}
