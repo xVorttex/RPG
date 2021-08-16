@@ -10,7 +10,7 @@ public class ScoreboardThread extends Thread {
     private boolean running;
     
     public ScoreboardThread() {
-	super("Zelium_Scoreboard-Thread");
+	super("Scoreboard-Thread");
 	setDaemon(true);
     }
 
