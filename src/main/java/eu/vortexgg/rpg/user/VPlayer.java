@@ -61,6 +61,8 @@ public class VPlayer {
 	    ResultSet rs = connection.prepareStatement("SELECT * FROM players WHERE UUID = '" + FastUUID.toString(uuid) + "'").executeQuery();
 	    if (rs.next()) {
 		side = Side.valueOf(rs.getString("side"));
+		level = rs.getInt("level");
+		exp = rs.getInt("exp");
 	    } else {
 		connection.prepareStatement("INSERT INTO players(UUID, NAME, SIDE, LVL, EXP) VALUE('" + FastUUID.toString(uuid) + "', '" + name + "', '" + side.name() + "', '" + level + "', '" + exp + "')").executeUpdate();
 	    }
