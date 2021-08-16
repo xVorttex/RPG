@@ -32,7 +32,7 @@ public class DataManager {
 		connection = DriverManager.getConnection("jdbc:mysql://" + Config.SQL_HOST + ":" + Config.SQL_PORT + "/" + Config.SQL_DATABASE + "?useSSL=false");
 	    }
 
-	    connection.prepareStatement("CREATE TABLE IF NOT EXISTS players (UUID VARCHAR(36),NAME VARCHAR(16),SIDE VARCHAR(12),PRIMARY KEY (UUID))").executeUpdate();
+	    connection.prepareStatement("CREATE TABLE IF NOT EXISTS players (UUID CHAR(36),NAME VARCHAR(16),SIDE VARCHAR(12),PRIMARY KEY (UUID))").executeUpdate();
 
 	    Builder builder = MongoClientSettings.builder();
 	    builder.applyConnectionString(new ConnectionString("mongodb://" + Config.MONGO_HOST + ":" + Config.MONGO_PORT));
