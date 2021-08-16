@@ -37,7 +37,7 @@ public class NametagManager {
     }
 
     private static void reloadPlayerInternal(Player toRefresh, Player refreshFor) {
-	boolean canSeeFriendlyInvisibles = !((CraftPlayer) toRefresh).getHandle().isInvisible() || refreshFor.hasPermission("zelium.invis");
+	boolean canSeeFriendlyInvisibles = !((CraftPlayer) toRefresh).getHandle().isInvisible() || refreshFor.hasPermission("rpg.invis");
 	new ScoreboardTeamPacket(getNametag(toRefresh, refreshFor).getName(), Arrays.asList(toRefresh.getName()),
 		canSeeFriendlyInvisibles ? 2 /* Can see invis skins */ : 0,
 		canSeeFriendlyInvisibles ? EnumNameTagVisibility.ALWAYS : EnumNameTagVisibility.NEVER)
