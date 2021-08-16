@@ -22,6 +22,7 @@ import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.minecraft.server.v1_12_R1.NBTTagCompound;
 import net.minecraft.server.v1_12_R1.NBTTagList;
+import com.lunarclient.bukkitapi.LunarClientAPI;
 
 public class BukkitUtil {
 
@@ -36,7 +37,7 @@ public class BukkitUtil {
     }
 
     public static boolean isLP(Player player) {
-	return false; //LunarClientAPI.getInstance().isRunningLunarClient(player);
+	return LunarClientAPI.getInstance().isRunningLunarClient(player);
     }
 
     public static ItemStack addGlow(ItemStack item) {
