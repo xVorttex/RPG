@@ -1,12 +1,11 @@
 package eu.vortexgg.rpg.util;
 
-import org.bson.Document;
-
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.ReplaceOptions;
-
 import eu.vortexgg.rpg.RPG;
+import eu.vortexgg.rpg.data.DataManager;
 import lombok.Getter;
+import org.bson.Document;
 
 @Getter
 public class MongoData {
@@ -18,15 +17,15 @@ public class MongoData {
     protected MongoCollection<Document> collection;
 
     public MongoData(String collectionName, RPG plugin) {
-	this.plugin = plugin;
-	this.collectionName = collectionName;
+        this.plugin = plugin;
+        this.collectionName = collectionName;
     }
 
     public void save() {
     }
 
     public void load() {
-	collection = plugin.getData().getDatabase().getCollection(collectionName);
+        collection = DataManager.get().getDatabase().getCollection(collectionName);
     }
 
 }

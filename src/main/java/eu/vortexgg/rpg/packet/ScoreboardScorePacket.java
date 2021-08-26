@@ -1,18 +1,18 @@
 package eu.vortexgg.rpg.packet;
 
-import java.lang.reflect.Field;
-
-import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
-import org.bukkit.entity.Player;
-
 import lombok.Getter;
 import net.minecraft.server.v1_12_R1.PacketPlayOutScoreboardScore;
 import net.minecraft.server.v1_12_R1.PacketPlayOutScoreboardScore.EnumScoreboardAction;
+import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
+import org.bukkit.entity.Player;
+
+import java.lang.reflect.Field;
 
 @Getter
 public class ScoreboardScorePacket {
-    
-    private static Field scoreStringField, scoreboardObjectiveNameField, scoreIntField, actionField;
+
+    static Field scoreStringField, scoreboardObjectiveNameField, scoreIntField, actionField;
+
     static {
         try {
             /* 1.12.2 PacketPlayOutScoreboardScore fields. */
@@ -28,9 +28,9 @@ public class ScoreboardScorePacket {
             ex.printStackTrace();
         }
     }
-    
+
     private final PacketPlayOutScoreboardScore packet = new PacketPlayOutScoreboardScore();
-    
+
     public ScoreboardScorePacket(String score, String objectiveName, int scoreValue, EnumScoreboardAction action) {
         try {
             scoreStringField.set(packet, score);
@@ -41,9 +41,9 @@ public class ScoreboardScorePacket {
             ex.printStackTrace();
         }
     }
-    
+
     public void sendToPlayer(Player bukkitPlayer) {
-        ((CraftPlayer)bukkitPlayer).getHandle().playerConnection.sendPacket(packet);
+        ((CraftPlayer) bukkitPlayer).getHandle().playerConnection.sendPacket(packet);
     }
-    
+
 }

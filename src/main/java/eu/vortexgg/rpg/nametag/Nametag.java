@@ -1,7 +1,6 @@
 package eu.vortexgg.rpg.nametag;
 
 import com.google.common.collect.Lists;
-
 import eu.vortexgg.rpg.packet.ScoreboardTeamPacket;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -15,10 +14,10 @@ public class Nametag {
     ScoreboardTeamPacket packet;
 
     Nametag(String name, String prefix, String suffix) {
-	this.name = name;
-	this.prefix = prefix;
-	this.suffix = suffix;
-	this.packet = new ScoreboardTeamPacket(name, prefix, suffix, Lists.newArrayList(), 0);
+        this.name = name;
+        this.prefix = prefix;
+        this.suffix = suffix;
+        this.packet = new ScoreboardTeamPacket(name, prefix, suffix, Lists.newArrayList(), 0);
     }
 
 }

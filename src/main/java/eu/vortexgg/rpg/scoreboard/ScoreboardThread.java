@@ -7,24 +7,24 @@ import lombok.Setter;
 @Setter
 public class ScoreboardThread extends Thread {
 
-    private boolean running;
-    
+    boolean running;
+
     public ScoreboardThread() {
-	super("Scoreboard-Thread");
-	setDaemon(true);
+        super("Zelium_Scoreboard-Thread");
+        setDaemon(true);
     }
 
     @Override
     public void run() {
-	while (running) {
-	    try {
-		for (VScoreboard scoreboard : ScoreboardManager.getBoards().values()) {
-		    scoreboard.update();
-		}
-		sleep(100);
-	    } catch (Exception ex) {
-		ex.printStackTrace();
-	    }
-	}
+        while (running) {
+            try {
+                for (VScoreboard scoreboard : ScoreboardManager.getBoards().values()) {
+                    scoreboard.update();
+                }
+                sleep(100);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 }
