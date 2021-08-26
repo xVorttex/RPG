@@ -1,0 +1,9 @@
+main: eu.vortexgg.rpg.RPG
+version: 1.3.3.7
+name: VRPG
+author: VortexGG
+softdepend: [Essentials, ProtocolLib, LunarClient-API]
+
+commands:
+   quester:
+   quest:
