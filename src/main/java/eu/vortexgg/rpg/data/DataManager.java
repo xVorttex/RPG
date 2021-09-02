@@ -16,6 +16,8 @@ import java.sql.DriverManager;
 @Getter
 public class DataManager {
 
+    public static final String DATABASE_NAME = "players";
+    
     Connection connection;
     MongoClient client;
     MongoDatabase database;
@@ -33,7 +35,7 @@ public class DataManager {
                 connection = DriverManager.getConnection("jdbc:mysql://" + Config.SQL_HOST + ":" + Config.SQL_PORT + "/" + Config.SQL_DATABASE + "?useSSL=false");
             }
 
-            connection.prepareStatement("CREATE TABLE IF NOT EXISTS players (UUID CHAR(36),NAME VARCHAR(16),SIDE VARCHAR(16),LVL INT,EXP INT,PRIMARY KEY (UUID))").executeUpdate();
+            connection.prepareStatement("CREATE TABLE IF NOT EXISTS " + DATABASE_NAME + "(UUID CHAR(36),NAME VARCHAR(16),SIDE VARCHAR(16),LVL INT,EXP INT,PRIMARY KEY (UUID))").executeUpdate();
 
             Builder builder = MongoClientSettings.builder();
             builder.applyConnectionString(new ConnectionString("mongodb://" + Config.MONGO_HOST + ":" + Config.MONGO_PORT));

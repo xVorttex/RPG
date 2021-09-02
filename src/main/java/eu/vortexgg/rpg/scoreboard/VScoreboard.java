@@ -75,7 +75,7 @@ public class VScoreboard {
             nextValue--;
         }
 
-        for (final String displayedScore : ImmutableSet.copyOf(displayedScores.keySet())) {
+        for (String displayedScore : ImmutableSet.copyOf(displayedScores.keySet())) {
             if (recentlyUpdatedScores.contains(displayedScore))
                 continue;
             removeScore(displayedScore);

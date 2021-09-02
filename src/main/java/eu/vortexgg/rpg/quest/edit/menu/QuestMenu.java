@@ -31,18 +31,18 @@ public class QuestMenu extends Menu {
         for(int i = 36; i < 45; i++) {
             setItem(i, DEFAULT_BACKGROUND_ITEM);
         }
-    }
-
-    @Override
-    public void update() {
         rewardMenu = new QuestEditorMenu(quest.getRewards(), (items) -> quest.setRewards(items), this);
         reqItemsMenu = new QuestEditorMenu(quest.getRequiredItems(), (items) -> quest.setRequiredItems(items), this);
         questerMenu = new QuestQuesterSelectorMenu(quest, this);
-        setItem(13, createQuestInfoItem(quest));
         setItem(21, createRequiredItemsEditorItem(this));
         setItem(22, createNameEditorItem(this, quest));
         setItem(23, createRewardEditorItem(this));
         setItem(31, createQuesterSelectorItem(this, quest));
+    }
+
+    @Override
+    public void update() {
+        setItem(13, createQuestInfoItem(quest));
         super.update();
     }
 
@@ -127,16 +127,11 @@ public class QuestMenu extends Menu {
     }
 
     public static class QuestEditorMenu extends Menu {
-
+	
+	List<ItemStack> fill;
+	
         public QuestEditorMenu(List<ItemStack> fill, Callback<List<ItemStack>> callback, QuestMenu parent) {
             super(null, "Квест Эдитор > Изменение предметов", 6);
-            if (fill != null) {
-                int slot = 0;
-                for (ItemStack item : fill) {
-                    setItem(slot, new MenuItem(item).setCancel(false));
-                    slot++;
-                }
-            }
             setMenuListener((p, inv, menu) -> {
                 List<ItemStack> items = Lists.newArrayList();
                 for (ItemStack content : inv.getContents()) {
@@ -144,13 +139,26 @@ public class QuestMenu extends Menu {
                         items.add(content);
                     }
                 }
+                this.fill = items;
                 callback.callback(items);
                 parent.update();
                 p.sendMessage("§aПредметы были успешно сохранены!");
                 TaskUtil.sync(() -> parent.open(p));
             });
         }
-
+        
+        @Override
+        public void update() {
+            if (fill != null) {
+                int slot = 0;
+                for (ItemStack item : fill) {
+                    setItem(slot, new MenuItem(item).setCancel(false));
+                    slot++;
+                }
+            }
+            super.update();
+        }
+        
     }
 
     public static class QuestQuesterSelectorMenu extends PaginatedMenu<Quester> {

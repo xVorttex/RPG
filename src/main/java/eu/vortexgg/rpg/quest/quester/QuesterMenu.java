@@ -34,10 +34,10 @@ public class QuesterMenu extends PaginatedMenu<Quest> {
         super(player, quester.getDisplayName(), 1);
         this.player = player;
         this.quester = quester;
-        this.startSlot = 2;
-        this.endSlot = 5;
-        this.nextSlot = 8;
-        this.backSlot = 0;
+        startSlot = 2;
+        endSlot = 5;
+        nextSlot = 8;
+        backSlot = 0;
     }
 
     @Override

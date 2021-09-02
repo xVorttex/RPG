@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.UUID;
+import static eu.vortexgg.rpg.data.DataManager.DATABASE_NAME;
 
 @Getter
 @Setter
@@ -53,14 +54,15 @@ public class VPlayer {
 
     public void load() {
         try {
+            String identifier = FastUUID.toString(uuid);
             Connection connection = DataManager.get().getConnection();
-            ResultSet rs = connection.prepareStatement("SELECT * FROM players WHERE UUID = '" + FastUUID.toString(uuid) + "'").executeQuery();
+            ResultSet rs = connection.prepareStatement("SELECT * FROM " + DATABASE_NAME + " WHERE UUID = '" + identifier + "'").executeQuery();
             if (rs.next()) {
                 side = Side.valueOf(rs.getString("side"));
                 level = rs.getInt("lvl");
                 exp = rs.getInt("exp");
             } else {
-                connection.prepareStatement("INSERT INTO players(UUID, NAME, SIDE, LVL, EXP) VALUE('" + FastUUID.toString(uuid) + "', '" + name + "', '" + side.name() + "', '" + level + "', '" + exp + "')").executeUpdate();
+                connection.prepareStatement("INSERT INTO " + DATABASE_NAME + "(UUID, NAME, SIDE, LVL, EXP) VALUE(" + identifier + ", " + name + ", " + side.name() + ", " + level + ", " + exp + ")").executeUpdate();
             }
             rs.close();
         } catch (Exception e) {
@@ -70,7 +72,7 @@ public class VPlayer {
 
     public void save() {
         try {
-            DataManager.get().getConnection().prepareStatement("UPDATE players SET NAME='" + name + "', SIDE='" + side.name() + "', LVL='" + level + "', EXP='" + exp + "' WHERE UUID = '" + FastUUID.toString(uuid) + "'").executeUpdate();
+            DataManager.get().getConnection().prepareStatement("UPDATE " + DATABASE_NAME + " SET NAME='" + name + "', SIDE='" + side.name() + "', LVL='" + level + "', EXP='" + exp + "' WHERE UUID = '" + FastUUID.toString(uuid) + "'").executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -13,7 +13,7 @@ import java.util.UUID;
 
 public class QuestData extends MongoData {
 
-    private MongoCollection<Document> questsCompleted;
+    MongoCollection<Document> questsCompleted;
 
     public QuestData(RPG plugin) {
         super("questsTaken", plugin);

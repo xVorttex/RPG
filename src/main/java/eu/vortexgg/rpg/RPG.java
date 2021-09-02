@@ -77,6 +77,7 @@ public class RPG extends JavaPlugin {
         scoreboardManager = new ScoreboardManager();
         questManager = new QuestManager(this);
         signManager = new SignManager(this);
+        
         new MenuManager(this);
         new NametagManager();
     }

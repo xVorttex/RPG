@@ -15,10 +15,9 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class QuestCommands implements CommandExecutor {
 
-    QuestManager questManager;
+    final QuestManager questManager;
 
     public QuestCommands(RPG plugin) {
         this.questManager = QuestManager.get();
@@ -36,7 +35,6 @@ public class QuestCommands implements CommandExecutor {
                 return true;
             } else {
                 switch (args[0].toLowerCase()) {
-
                     case "setnpc": {
                         if (args.length == 3) {
                             Quester quester = questManager.getQuesters().get(args[1]);
@@ -58,7 +56,6 @@ public class QuestCommands implements CommandExecutor {
                         }
                         return false;
                     }
-
                     case "create": {
                         if (args.length == 3) {
                             String id = args[1].toLowerCase();
@@ -116,7 +113,6 @@ public class QuestCommands implements CommandExecutor {
                             }
                             return false;
                         }
-
                         default: {
                             Quest quest = questManager.getQuests().get(args[0].toLowerCase());
 

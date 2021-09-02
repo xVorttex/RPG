@@ -5,7 +5,6 @@ import eu.vortexgg.rpg.util.FlatFile;
 import eu.vortexgg.rpg.util.JavaUtil;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class QuestFile extends FlatFile {
 
@@ -16,8 +15,7 @@ public class QuestFile extends FlatFile {
     @Override
     public void load() {
         if (config.contains("quests")) {
-            List<Quest> list = JavaUtil.createList(config.get("quests"), Quest.class);
-            for (Quest quest : list) {
+            for (Quest quest : JavaUtil.createList(config.get("quests"), Quest.class)) {
                 QuestManager.get().getQuests().put(quest.getId(), quest);
             }
         }
