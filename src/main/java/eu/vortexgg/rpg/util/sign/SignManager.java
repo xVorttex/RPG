@@ -26,7 +26,7 @@ import java.util.Map;
 @Getter
 public class SignManager implements Listener {
 
-    Map<String, Pair<SignCallback, Location>> editors = Maps.newHashMap();
+    private final Map<String, Pair<SignCallback, Location>> editors = Maps.newHashMap();
     static SignManager instance;
 
     public SignManager(Plugin plugin) {
