@@ -21,10 +21,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Arrays;
 
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class RPG extends JavaPlugin {
 
-    @Getter
-    ConfigFile config;
+    @Getter ConfigFile config;
 
     DataManager data;
     QuestManager questManager;
