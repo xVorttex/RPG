@@ -6,9 +6,11 @@ import eu.vortexgg.rpg.user.VPlayer;
 import eu.vortexgg.rpg.util.menu.Menu;
 import eu.vortexgg.rpg.util.menu.item.MenuItem;
 import org.bukkit.entity.Player;
-
 import java.util.ArrayList;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
 
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class SideMenu extends Menu {
 
     final VPlayer vplayer;
