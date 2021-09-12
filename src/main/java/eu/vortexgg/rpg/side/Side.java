@@ -7,7 +7,10 @@ import eu.vortexgg.rpg.util.menu.item.MenuItem;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.bukkit.Material;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
 
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @Getter
 @AllArgsConstructor
 public enum Side {
