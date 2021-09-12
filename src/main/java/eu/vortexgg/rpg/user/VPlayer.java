@@ -15,10 +15,12 @@ import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.UUID;
 import static eu.vortexgg.rpg.data.DataManager.DATABASE_NAME;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
 
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @Getter
 @Setter
-@FieldDefaults(level = AccessLevel.PRIVATE)
 public class VPlayer {
 
     @Getter
