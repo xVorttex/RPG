@@ -17,7 +17,7 @@ import org.bukkit.entity.Player;
 
 public class QuestCommands implements CommandExecutor {
 
-    final QuestManager questManager;
+    private final QuestManager questManager;
 
     public QuestCommands(RPG plugin) {
         this.questManager = QuestManager.get();
