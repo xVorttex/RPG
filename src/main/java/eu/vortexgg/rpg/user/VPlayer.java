@@ -18,6 +18,7 @@ import static eu.vortexgg.rpg.data.DataManager.DATABASE_NAME;
 
 @Getter
 @Setter
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class VPlayer {
 
     @Getter
