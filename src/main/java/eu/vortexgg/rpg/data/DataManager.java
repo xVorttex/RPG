@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 @Getter
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class DataManager {
 
     public static final String DATABASE_NAME = "players";
