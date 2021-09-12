@@ -4,6 +4,7 @@ import eu.vortexgg.rpg.user.VPlayer;
 import eu.vortexgg.rpg.util.menu.Menu;
 import org.bukkit.entity.Player;
 
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class LevelingMenu extends Menu {
 
     final VPlayer vplayer;
