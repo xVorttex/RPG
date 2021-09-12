@@ -19,7 +19,10 @@ import org.bukkit.inventory.ItemStack;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
 
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class QuesterMenu extends PaginatedMenu<Quest> {
 
     public static final MenuItem COMPLETED_GLASS_ITEM = new MenuItem(new VItemStack(Material.STAINED_GLASS_PANE, "&aВыполнено!", (short) 5));
