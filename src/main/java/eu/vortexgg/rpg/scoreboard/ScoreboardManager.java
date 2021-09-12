@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Getter
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class ScoreboardManager {
 
     @Getter
