@@ -18,8 +18,8 @@ import java.util.List;
 public class NametagManager {
 
     @Getter
-    static final List<Nametag> cachedTeams = Lists.newArrayList();
-    static int teamCreateIndex = 1;
+    private static final List<Nametag> cachedTeams = Lists.newArrayList();
+    private static int teamCreateIndex = 1;
 
     public static void reloadPlayer(Player toRefresh) {
         for (Player pl : Bukkit.getOnlinePlayers())
