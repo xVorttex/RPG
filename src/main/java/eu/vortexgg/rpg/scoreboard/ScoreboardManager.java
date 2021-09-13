@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ScoreboardManager {
 
     @Getter
-    static final ConcurrentHashMap<String, VScoreboard> boards = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<String, VScoreboard> boards = new ConcurrentHashMap<>();
 
     final ScoreboardThread thread;
 
